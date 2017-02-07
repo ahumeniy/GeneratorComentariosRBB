@@ -24,15 +24,52 @@ textarea {
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"]
-{
+.carousel-inner .item img[src$=".svg"] {
     width: 100%;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-  /* Hide captions */
-  .carousel-caption {
-    display: none
-  }
+blockquote.frase {
+    border-left: none;
+    font-style: italic;
+}
+
+.carousel-caption {
+    bottom: 10px;
+    padding-bottom: 0px;
+    left: 10px;
+    right: 10px;
+}
+
+@media screen and (max-width: 767px){
+    .carousel-caption{
+        font-size: small;
+        bottom: 10px;
+        padding-bottom: 0px;
+    }
+
+    .carousel-caption blockquote.frase{
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .carousel-caption {
+        bottom: 10px;
+        padding-bottom: 0px;
+        left: 0px;
+        right: 0px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .carousel-caption blockquote.frase{
+        font-size: x-large;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .carousel-caption blockquote.frase{
+        font-size: xx-large;
+    }
 }
