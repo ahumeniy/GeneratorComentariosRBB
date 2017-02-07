@@ -14,6 +14,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
+    <ApplicationInsightsResourceId>/subscriptions/afc52743-4f41-49bf-a02b-f2a811dcc47f/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/RBBCommentGeneratorWeb</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/afc52743-4f41-49bf-a02b-f2a811dcc47f/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/RBBCommentGeneratorWeb</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
   <ItemGroup>
     <DnxInvisibleContent Include="bower.json" />

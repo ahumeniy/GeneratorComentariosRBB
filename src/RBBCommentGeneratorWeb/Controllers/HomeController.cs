@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
+using RBBCommentGeneratorWeb.Util;
 
 namespace RBBCommentGeneratorWeb.Controllers
 {
@@ -18,11 +19,11 @@ namespace RBBCommentGeneratorWeb.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Frase = ObtenerFrase();
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Obtener()
+        private string ObtenerFrase()
         {
             var path = System.IO.Path.Combine(_hostEnvironment.WebRootPath, "data", "frases.json");
             var file = System.IO.File.ReadAllText(path);
@@ -35,7 +36,14 @@ namespace RBBCommentGeneratorWeb.Controllers
             .Replace("%4", GetRandomValue(data.arg4))
             .Replace("%5", GetRandomValue(data.arg5));
 
-            return Json(frase);
+            return frase;
+        }
+
+        [HttpGet]
+        [NoCache]
+        public IActionResult Obtener()
+        {
+            return Json(ObtenerFrase());
         }
 
         private string GetRandomValue(string[] items)
