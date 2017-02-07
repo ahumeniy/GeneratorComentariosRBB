@@ -29,12 +29,9 @@ namespace RBBCommentGeneratorWeb.Controllers
             var file = System.IO.File.ReadAllText(path);
             var data = Newtonsoft.Json.JsonConvert.DeserializeObject<Models.FrasesViewModel>(file);
 
-            string frase = GetRandomValue(data.frases)
-            .Replace("%1", GetRandomValue(data.arg1))
-            .Replace("%2", GetRandomValue(data.arg2))
-            .Replace("%3", GetRandomValue(data.arg3))
-            .Replace("%4", GetRandomValue(data.arg4))
-            .Replace("%5", GetRandomValue(data.arg5));
+            string frase = GetRandomValue(data.frases);
+
+            frase = ReplaceFrase(frase, data);
 
             return frase;
         }
@@ -46,10 +43,31 @@ namespace RBBCommentGeneratorWeb.Controllers
             return Json(ObtenerFrase());
         }
 
+        private string ReplaceFrase(string frase, Models.FrasesViewModel frases)
+        {
+            var regx = new System.Text.RegularExpressions.Regex("%[1-5]");
+            var match = regx.Match(frase);
+            if (match.Success)
+            {
+                frase = frase.Remove(match.Index, 2);
+                string toReplace = "";
+                if (match.Value == "%1") toReplace = GetRandomValue(frases.arg1);
+                if (match.Value == "%2") toReplace = GetRandomValue(frases.arg2);
+                if (match.Value == "%3") toReplace = GetRandomValue(frases.arg3);
+                if (match.Value == "%4") toReplace = GetRandomValue(frases.arg4);
+                if (match.Value == "%5") toReplace = GetRandomValue(frases.arg5);
+                frase = frase.Insert(match.Index, toReplace);
+                return ReplaceFrase(frase, frases);
+            }
+            else
+            {
+                return frase;
+            }
+        }
+
         private string GetRandomValue(string[] items)
         {
-            var rnd = new Random();
-            return items[rnd.Next(0, items.Length)];
+            return items[ThreadLocalRandom.Next(0, items.Length)];
         }
 
         public IActionResult About()
