@@ -72,18 +72,17 @@ namespace RBBCommentGeneratorWeb.Controllers
 
         private string ReplaceFrase(string frase, Models.FrasesViewModel frases)
         {
-            var regx = new Regex("%[1-5]");
+            var regx = new Regex("%[a-z]*%");
             var match = regx.Match(frase);
             if (match.Success)
             {
-                frase = frase.Remove(match.Index, 2);
                 string toReplace = "";
-                if (match.Value == "%1") toReplace = GetRandomValue(frases.arg1);
-                if (match.Value == "%2") toReplace = GetRandomValue(frases.arg2);
-                if (match.Value == "%3") toReplace = GetRandomValue(frases.arg3);
-                if (match.Value == "%4") toReplace = GetRandomValue(frases.arg4);
-                if (match.Value == "%5") toReplace = GetRandomValue(frases.arg5);
-                frase = frase.Insert(match.Index, toReplace);
+                if (match.Value == "%insulto%") toReplace = GetRandomValue(frases.insulto);
+                if (match.Value == "%consejo%") toReplace = GetRandomValue(frases.consejo);
+                if (match.Value == "%personaje%") toReplace = GetRandomValue(frases.personaje);
+                if (match.Value == "%accion%") toReplace = GetRandomValue(frases.accion);
+                if (match.Value == "%cierre%") toReplace = GetRandomValue(frases.cierre);
+                frase = regx.Replace(frase, toReplace, 1);
                 return ReplaceFrase(frase, frases);
             }
             else

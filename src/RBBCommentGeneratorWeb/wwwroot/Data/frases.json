@@ -1,46 +1,57 @@
 ﻿{
   "frases": [
-    "Eres un@ %1, %2 y no sabís que %3, %4, %5.",
-    "Oye %1, entiende que %3 %4. %2.",
-    "%3 %4, %2",
-    "Acaso te olvidaste que %3 y %3 están coludidos, %5.",
-    "Eres un@ %1 %1, todos saben que %3 %4 y %3 %4. %5",
-    "Eres un@ %1 %1, %2. %3 %4 junto con %3. %5",
-    "Eres un@ %1 %1, %2. %3 %4. %5, %5"
+    "Eres un@ %insulto%, %consejo% y no sabís que %personaje%, %accion%, %cierre%.",
+    "Oye %insulto%, entiende que %personaje% %accion%. %consejo%.",
+    "%personaje% %accion%, %consejo%",
+    "Acaso te olvidaste que %personaje% y %personaje% están coludidos, %cierre%.",
+    "Eres un@ %insulto% %insulto%, todos saben que %personaje% %accion% y %personaje% %accion%. %cierre%",
+    "Eres un@ %insulto% %insulto%, %consejo%. %personaje% %accion% junto con %personaje%. %cierre%",
+    "¿Cuánto te pagó %personaje% por defenderle?",
+    "Tú sólo espera, va a salir %personaje% de presidente y te vas a arrepentir.",
+    "Eres un@ %insulto% %insulto%, %consejo%. %personaje% %accion%. %cierre%, %cierre%"
   ],
-  "arg1": [
+  "insulto": [
     "facho",
     "pobre weón",
     "comunacho",
     "adorador del tata",
     "momio",
     "ignorante",
-    "imbecil",
+    "imbécil",
     "tonto",
-    "pobre weon",
-    "tonto weon",
+    "pobre weón",
+    "tonto weón",
     "facho pobre",
     "rata socialista",
     "payaso",
     "muerto de hambre",
     "flaite ql",
     "lacra",
-    "lacra comunista"
+    "lacra comunista",
+    "traidor a la patria"
   ],
-  "arg2": [
+  "consejo": [
     "apaga la tele",
     "aprende a escribir",
-    "por tu culpa el pais esta como esta",
-    "culturizate",
-    "no seai weon",
+    "por tu culpa el país está como está",
+    "culturízate",
+    "culturísate",
+    "no seai weón",
     "no seai ingenuo",
-    "cuidese",
+    "cuídese",
+    "cuídate",
     ":)",
-    "hasta cuando",
-    "te falta educación gratuita y de calidad"
+    "hasta cuándo",
+    "te falta educación gratuita y de calidad",
+    "estudia",
+    "investiga"
   ],
-  "arg3": [
+  "personaje": [
     "piraña",
+    "lavín",
+    "Insulza",
+    "José Miguel Insulza",
+    "Ominami",
     "la gorda",
     "la chancha pepa",
     "pin8",
@@ -49,13 +60,16 @@
     "la derecha",
     "Luksik",
     "Angelini",
+    "Evo Morales",
     "una de las siete familias",
     "la UDI",
-    "la nueva pilleria",
-    "la nm",
-    "la concertacion",
+    "la nueva pillería",
+    "la NM",
+    "la concertación",
     "la concerta",
-    "estados unidos",
+    "Estados Unidos",
+    "Obama",
+    "Fidel",
     "los mal llamados derechos humanos",
     "monsanto",
     "el empresariado chileno",
@@ -68,7 +82,7 @@
     "natalia compagnon",
     "sebastián dávalos"
   ],
-  "arg4": [
+  "accion": [
     "roba",
     "tiene a todos engañados",
     "le paga a las madereras para robar salitre",
@@ -95,9 +109,13 @@
     "tienen comprados a todos los políticos",
     "le debía favores al otro hueón",
     "utiliza la salud para enriquecerse",
+    "vendió nuestro mar al mejor postor",
+    "le vendió el país al mejor postor",
+    "tiene la culpa de todos los problemas ambientales",
+    "se enriqueció con el dinero de todos nosotros",
     "se aprovechó del caso CAVAL para sacar beneficios"
   ],
-  "arg5": [
+  "cierre": [
     "informate",
     "yo no te voy a hacer la tarea",
     "investiga",
@@ -107,5 +125,5 @@
     "todo calza",
     "ningún medio ha hablado absolutamente nada al respecto"
   ],
-  "version": [ "1.4" ]
+  "version": "2.0.0"
 }
