@@ -99,7 +99,7 @@
     "es la persona mas interesada en que no se investiguen sus empresas",
     "es responsable por los incendios",
     "está usando la mano negra para influir en las elecciones",
-    "usan los fondos de la TELETÓN para comprar acciones en las grandes empresas",
+    "usa los fondos de la TELETÓN para comprar acciones en las grandes empresas",
     "le miente al país",
     "nos trata como si fuéramos weones",
     "utilizan las protestas a su favor para sacar favores políticos",
@@ -111,9 +111,12 @@
     "utiliza la salud para enriquecerse",
     "vendió nuestro mar al mejor postor",
     "le vendió el país al mejor postor",
+    "logró ganar más plata usando el caso PENTA en su beneficio",
+    "también estuvo metido en la wea del caso PENTA",
     "tiene la culpa de todos los problemas ambientales",
     "se enriqueció con el dinero de todos nosotros",
-    "se aprovechó del caso CAVAL para sacar beneficios"
+    "se aprovechó del caso CAVAL para sacar beneficios",
+    "andaba metido en la wea del paro de aduanas"
   ],
   "cierre": [
     "informate",
@@ -125,5 +128,5 @@
     "todo calza",
     "ningún medio ha hablado absolutamente nada al respecto"
   ],
-  "version": "2.0.0"
+  "version": "2.0.2"
 }
