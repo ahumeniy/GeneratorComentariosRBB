@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using RBBCommentGeneratorWeb.Util;
+using System.Text.RegularExpressions;
 
 namespace RBBCommentGeneratorWeb.Controllers
 {
@@ -33,7 +34,33 @@ namespace RBBCommentGeneratorWeb.Controllers
 
             frase = ReplaceFrase(frase, data);
 
+            frase = DeterminarGenero(frase);
+
             return frase;
+        }
+
+        private string DeterminarGenero(string frase)
+        {
+            var neutral = new Regex("un@");
+            var loc = neutral.Match(frase);
+            if (!loc.Success)
+                return frase;
+
+            var siguiente = new Regex(@"[\s,\.]");
+            var match = siguiente.Match(frase, loc.Index + 3);
+
+            if (!match.Success)
+                return neutral.Replace(frase, "un");
+
+            var rgxFem = new Regex(@".*[a].?$");
+            var esFemenino = rgxFem.Match(frase.Substring(loc.Index + 3, match.Index - loc.Index + 3));
+
+            if (esFemenino.Success)
+                frase = neutral.Replace(frase, "una");
+            else
+                frase = neutral.Replace(frase, "un");
+
+            return DeterminarGenero(frase);
         }
 
         [HttpGet]
@@ -45,7 +72,7 @@ namespace RBBCommentGeneratorWeb.Controllers
 
         private string ReplaceFrase(string frase, Models.FrasesViewModel frases)
         {
-            var regx = new System.Text.RegularExpressions.Regex("%[1-5]");
+            var regx = new Regex("%[1-5]");
             var match = regx.Match(frase);
             if (match.Success)
             {
