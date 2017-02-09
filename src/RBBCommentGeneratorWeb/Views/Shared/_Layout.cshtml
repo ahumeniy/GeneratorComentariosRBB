@@ -3,7 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Generador Comentarios RBB</title>
+    <title>Generador Comentarios RBB</title>
+
+    <meta name="description" content="Generador de Comentarios RBB" />
+    <meta name="twitter:image" content="http://rbbcommentgenerator.azurewebsites.net/images/bandera-y-wea.png" />
+    <meta name="image" content="http://rbbcommentgenerator.azurewebsites.net/" />
+    <meta name="og:image" content="http://rbbcommentgenerator.azurewebsites.net/" />
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -15,7 +20,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+    @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
