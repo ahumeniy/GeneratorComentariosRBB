@@ -48,6 +48,8 @@
   ],
   "personaje": [
     "piraña",
+    "Piñera",
+    "Bachelet",
     "lavín",
     "Insulza",
     "José Miguel Insulza",
@@ -130,5 +132,5 @@
     "salfate lo dijo wn",
     "ningún medio ha hablado absolutamente nada al respecto"
   ],
-  "version": "2.0.4"
+  "version": "2.0.6"
 }
