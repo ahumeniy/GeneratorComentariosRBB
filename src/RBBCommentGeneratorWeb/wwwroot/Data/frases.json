@@ -10,7 +10,10 @@
     "Tú sólo espera, va a salir %personaje% de presidente y te vas a arrepentir.",
     "No me digas que apoyas a %personaje% sabiendo que %accion%. %cierre%. %consejo%.",
     "La culpa la tiene %personaje%.",
-    "Eres un@ %insulto% %insulto%, %consejo%. %personaje% %accion%. %cierre%, %cierre%"
+    "Eres un@ %insulto% %insulto%, %consejo%. %personaje% %accion%. %cierre%, %cierre%",
+    "El pueblo CHILENO ya está hasta la CORONILLA que haya %insulto% en el poder. ¡%personaje% 2017!",
+    "%personaje% %accion%. ¡%personaje% PARA PRESIDENTE DE CHILE 2017!",
+    "Cómo tan %insulto%, mira cómo %personaje% %accion% y a gente como tú eso le gusta. %consejo%, %cierre%"
   ],
   "insulto": [
     "facho",
@@ -117,6 +120,8 @@
     "Ignacio Walker",
     "Evelyn Matthei",
     "Boric",
+    "Claude",
+    "Marcel Claude",
     "Gabriel Boric",
     "sebastián dávalos"
   ],
@@ -201,6 +206,9 @@
     "No se trata de ideologías, se trata de influencias",
     "AFIRMENSE!!",
     "INDEPENDIENTES DE VERDAD, NO + AFP",
+    "No + de lo mismo",
+    "Sospechoso!",
+    "Ya viene la mano devuelta",
     "No seai tan resentido",
     "Todo lo que el hombre sembrare, eso segará, dijo JESUS",
     "Por esto tenemos catástrofes, DIOS está furioso",
@@ -221,5 +229,5 @@
     "EL LOBBY DE LOS MEDIOS DE COMUNICACIÓN",
     "ningún medio ha hablado absolutamente nada al respecto"
   ],
-  "version": "2.2.0"
+  "version": "2.3.0"
 }
