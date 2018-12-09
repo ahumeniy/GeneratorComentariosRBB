@@ -22,6 +22,7 @@ namespace RBBCommentGeneratorWeb
 
             if (env.IsDevelopment())
             {
+                builder.AddUserSecrets<Startup>();
                 // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
@@ -29,6 +30,7 @@ namespace RBBCommentGeneratorWeb
         }
 
         public IConfigurationRoot Configuration { get; }
+        private Util.AzureStorageSettings _storageSettings;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -36,11 +38,16 @@ namespace RBBCommentGeneratorWeb
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            _storageSettings = Configuration.GetSection("AzureStorageSettings").Get<Util.AzureStorageSettings>();
+
+            services.Configure<Util.AzureStorageSettings>(Configuration.GetSection("AzureStorageSettings"));
+            services.AddMemoryCache();
+
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -57,11 +64,18 @@ namespace RBBCommentGeneratorWeb
 
             app.UseStaticFiles();
 
+            Util.StorageClient.SetSettings(_storageSettings);
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "shorten",
+                    template: "s/{id}", 
+                    defaults: new { controller = "Home", Action = "Index" });
             });
         }
     }

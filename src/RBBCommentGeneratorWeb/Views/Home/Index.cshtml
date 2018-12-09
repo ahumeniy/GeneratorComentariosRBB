@@ -1,4 +1,5 @@
-﻿@{
+﻿@using RBBCommentGeneratorWeb.Util
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -20,13 +21,43 @@
     <a class="btn btn-default" onclick="obtenerFrase()">
         Otra
     </a>
+    <a class="btn btn-default" onclick="mostrarCompartir()">
+        Compartir
+    </a>
     <br />
     <span onclick="cambiarPower()" style="padding: 5px 10px; cursor: pointer;"><input type="checkbox" id="power" onchange="togglePower()" /> REALMENTE QUIERO GANAR!</span>
     <p style="font-size:small; padding: 20px 0px;">El contenido de esta página es provisto para fines <span title="Es una humorada">humorísticos</span>. Las opiniones vertidas no reflejan la opinión de sus creadores.</p>
 </div>
+
+<div id="modal-compartir" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalLabel">Compartir</h4>
+            </div>
+            <div class="modal-body">
+                <p>Copia y pega la siguiente URL para compartir:</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <input type="text" id="textSurl" class="form-control" style="max-width: 100%" readonly="readonly" />
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-default" onClick="tryCopy()"><span class="glyphicon glyphicon-copy"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @section scripts{
-    <script>
+<script>
         _fraseExistente = "";
+        _fraseAbbr = "@Html.Raw(ViewBag.FraseShort ?? "")";
+        _fraseSurl = "@Html.Raw(ViewBag.Surl ?? "")";
+        _baseUrl = "https://rbbcommentgenerator.azurewebsites.net/s/";
 
         $(function () {
             _fraseExistente = $('#frase').html();
@@ -35,7 +66,9 @@
         function obtenerFrase() {
             $.getJSON("/home/obtener?_=" + Date.now(), function (data) {
                 console.log("Frase recibida", data);
-                _fraseExistente = data;
+                _fraseExistente = data.frase;
+                _fraseAbbr = data.abbr;
+                _fraseSurl = "";
                 mostrarFrase();
             });
         }
@@ -57,5 +90,28 @@
             $('#power')[0].checked = !$('#power')[0].checked;
             mostrarFrase();
         }
-    </script>
+
+        function mostrarCompartir() {
+            if (_fraseSurl == "") {
+                $.post("/home/Surl", { "fraseB64" : _fraseAbbr }, function (data) {
+                    _fraseSurl = data;
+
+                    $('#textSurl').val(_baseUrl + data);
+                    $('#modal-compartir').modal();
+                });
+            }
+            else {
+                $('#textSurl').val(_baseUrl + _fraseSurl);
+                $('#modal-compartir').modal();
+            }
+        }
+
+        function tryCopy() {
+            var element = document.getElementById("textSurl");
+
+            element.select();
+
+            document.execCommand("copy");
+        }
+</script>
 }
