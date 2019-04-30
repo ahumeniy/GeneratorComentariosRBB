@@ -1,39 +1,72 @@
 ﻿@using RBBCommentGeneratorWeb.Util
 @{
-    ViewData["Title"] = "Home Page";
+ViewData["Title"] = "Home Page";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="~/images/banner1a.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption">
-                <p class="visible-sm-block">&nbsp;</p>
-                <p>
-                    <blockquote class="frase" id="frase" role="alert">@ViewBag.Frase</blockquote>
-                </p>
-            </div>
-        </div>
+@section style{
+<style>
+    .content {
+        background-image: url("/images/banner1a.svg");
+    }
+    .content-tools {
+        padding-top: 2%;
+    }
+
+    .logo_rbb {
+        padding-left: 10%;
+        width: 25%;
+
+    }
+</style>
+}
+
+<div class="row">
+    <div class="content">
+        <img class="logo_rbb" src="~/images/bandera-y-wea.png" alt="">
     </div>
 </div>
-<div style="text-align: center; padding: 10px 0px;">
-    Copiar y pegar para ganar cualquier discusión online.<br />
-    <a class="btn btn-default" onclick="obtenerFrase()">
-        Otra
-    </a>
-    <a class="btn btn-default" onclick="mostrarCompartir()">
-        Compartir
-    </a>
-    <br />
-    <span onclick="cambiarPower()" style="padding: 5px 10px; cursor: pointer;"><input type="checkbox" id="power" onchange="togglePower()" /> REALMENTE QUIERO GANAR!</span>
-    <p style="font-size:small; padding: 20px 0px;">El contenido de esta página es provisto para fines <span title="Es una humorada">humorísticos</span>. Las opiniones vertidas no reflejan la opinión de sus creadores.</p>
+
+<div class="row content-tools">
+    <div class="col-md-4">
+        Copiar y pegar el siguiente texto para ganar cualquier discusión online.
+    </div>
+    <div class="col-md-4" style="text-align: center;">
+        <span style="padding: 5px 10px; cursor: pointer;"><input type="checkbox" id="power"/> REALMENTE QUIERO
+            GANAR!</span>
+    </div>
+    <div class="col-md-4" style="text-align: right;">
+        <a class="btn btn-primary" onclick="obtenerFrase()">
+            <i class="glyphicon glyphicon-refresh"></i> Generar otra
+        </a>
+        <a class="btn btn-success" onclick="mostrarCompartir()">
+            <i class="	glyphicon glyphicon-share-alt"></i> Compartir
+        </a>
+    </div>
 </div>
+
+<div class="row">
+    <div class="well" style="text-align: center">
+        <p>
+            <blockquote class="frase" id="frase" role="alert">
+                <h3>@ViewBag.Frase</h3>
+            </blockquote>
+        </p>
+    </div>
+
+    <p style="font-size:small; padding: 20px 0px;">El contenido de esta página es provisto para fines <span
+            title="Es una humorada">humorísticos</span>. Las opiniones vertidas no reflejan la opinión de sus creadores.
+    </p>
+
+</div>
+
+
 
 <div id="modal-compartir" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="modalLabel">Compartir</h4>
             </div>
             <div class="modal-body">
@@ -41,10 +74,12 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-11">
-                            <input type="text" id="textSurl" class="form-control" style="max-width: 100%" readonly="readonly" />
+                            <input type="text" id="textSurl" class="form-control" style="max-width: 100%"
+                                readonly="readonly" />
                         </div>
                         <div class="col-md-1">
-                            <button type="button" class="btn btn-default" onClick="tryCopy()"><span class="glyphicon glyphicon-copy"></span></button>
+                            <button type="button" class="btn btn-default" onClick="tryCopy()"><span
+                                    class="glyphicon glyphicon-copy"></span></button>
                         </div>
                     </div>
                 </div>
@@ -54,64 +89,61 @@
 </div>
 @section scripts{
 <script>
-        _fraseExistente = "";
-        _fraseAbbr = "@Html.Raw(ViewBag.FraseShort ?? "")";
-        _fraseSurl = "@Html.Raw(ViewBag.Surl ?? "")";
-        _baseUrl = "https://rbbcommentgenerator.azurewebsites.net/s/";
+    _fraseExistente = "";
+    _fraseAbbr = "@Html.Raw(ViewBag.FraseShort ?? "")";
+    _fraseSurl = "@Html.Raw(ViewBag.Surl ?? "")";
+    _baseUrl = "https://rbbcommentgenerator.azurewebsites.net/s/";
 
-        $(function () {
-            _fraseExistente = $('#frase').html();
-        })
+    $(function () {
+        _fraseExistente = $('#frase').html();
+    })
 
-        function obtenerFrase() {
-            $.getJSON("/home/obtener?_=" + Date.now(), function (data) {
-                console.log("Frase recibida", data);
-                _fraseExistente = data.frase;
-                _fraseAbbr = data.abbr;
-                _fraseSurl = "";
-                mostrarFrase();
+    function obtenerFrase() {
+        $.getJSON("/home/obtener?_=" + Date.now(), function (data) {
+            console.log("Frase recibida", data);
+            _fraseExistente = data.frase;
+            _fraseAbbr = data.abbr;
+            _fraseSurl = "";
+            mostrarFrase();
+        });
+    }
+
+    function mostrarFrase() {
+        if ($('#power')[0].checked) {
+            $('#frase').html(_fraseExistente.toUpperCase() + "!!!");
+        }
+        else {
+            $('#frase').html(_fraseExistente);
+        }
+    }
+
+    $('#power').on('change', function () {
+        mostrarFrase();
+    });
+
+
+
+    function mostrarCompartir() {
+        if (_fraseSurl == "") {
+            $.post("/home/Surl", { "fraseB64": _fraseAbbr }, function (data) {
+                _fraseSurl = data;
+
+                $('#textSurl').val(_baseUrl + data);
+                $('#modal-compartir').modal();
             });
         }
-
-        function mostrarFrase() {
-            if ($('#power')[0].checked) {
-                $('#frase').html(_fraseExistente.toUpperCase() + "!!!");
-            }
-            else {
-                $('#frase').html(_fraseExistente);
-            }
+        else {
+            $('#textSurl').val(_baseUrl + _fraseSurl);
+            $('#modal-compartir').modal();
         }
+    }
 
-        function togglePower() {
-            mostrarFrase();
-        }
+    function tryCopy() {
+        var element = document.getElementById("textSurl");
 
-        function cambiarPower() {
-            $('#power')[0].checked = !$('#power')[0].checked;
-            mostrarFrase();
-        }
+        element.select();
 
-        function mostrarCompartir() {
-            if (_fraseSurl == "") {
-                $.post("/home/Surl", { "fraseB64" : _fraseAbbr }, function (data) {
-                    _fraseSurl = data;
-
-                    $('#textSurl').val(_baseUrl + data);
-                    $('#modal-compartir').modal();
-                });
-            }
-            else {
-                $('#textSurl').val(_baseUrl + _fraseSurl);
-                $('#modal-compartir').modal();
-            }
-        }
-
-        function tryCopy() {
-            var element = document.getElementById("textSurl");
-
-            element.select();
-
-            document.execCommand("copy");
-        }
+        document.execCommand("copy");
+    }
 </script>
 }
