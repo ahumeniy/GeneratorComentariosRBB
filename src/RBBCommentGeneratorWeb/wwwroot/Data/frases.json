@@ -1,4 +1,4 @@
-﻿{
+{
   "frases": [
     "Eres un@ %insulto%, %consejo% y no sabís que %personaje%, %accion%, %cierre%.",
     "Oye %insulto%, entiende que %personaje% %accion%. %consejo%.",
@@ -35,6 +35,11 @@
     "flaite ql",
     "lacra",
     "lacra comunista",
+    "ctm",
+    "compadre",
+    "patipelado",
+    "patipelao",
+    "borreguito",
     "traidor a la patria"
   ],
   "consejo": [
@@ -57,6 +62,8 @@
     "estudia",
     "no seai wn",
     "como tanto wn",
+    "ahi que ser muy barza",
+    "cómo tan cara de raja",
     "investiga"
   ],
   "personaje": [
@@ -121,6 +128,9 @@
     "osvaldo andrade",
     "monckeberg",
     "hernan larraín",
+    "Marcela Cubillos",
+    "Cubillos",
+    "el ministro",
     "guillermo teillier",
     "guido girardi",
     "girardi",
@@ -136,6 +146,10 @@
     "Marcel Claude",
     "Gabriel Boric",
     "guillier",
+    "donald trump",
+    "jorge pacheco",
+    "ANATEL",
+    "frei",
     "sebastián dávalos"
   ],
   "accion": [
@@ -211,6 +225,21 @@
     "beneficia a las grandes elites",
     "ABUSA de la gente",
     "es indefectiblemente hijo de las políticas asistencialistas del estado que creó una casta de parásitos",
+    "disfruta de la CORRUPCIÓN mientras que falta plata para la EDUCACIÓN PÚBLICA",
+    "es un ladrón CARA DE RAJA",
+    "es la responsable que los profesores anden flojiando en ves de hacer clases",
+    "tiene la culpa que los profesores hagan paro",
+    "se llevó toda la plata sin que nadie se diera cuenta",
+    "es el responsable que no haya JUSTICIA en esta caga de país",
+    "apolla la idea de enceguecer a la gente con la mentira del sol caliente",
+    "pretende que nos creamos todo el tollo",
+    "apoyaba la idea de permitir los drones espías gringos para espiarnos a cambio de quizás cuántos millones",
+    "APOYA la idea de permitir que nos ESPÍEN con drones",
+    "quiere traer de vuelta la junta militar y la dina de nuevo, por eso querian sacar historia de los colegios",
+    "pretende aplicar el TOQUE DE QUEDA al OBLIGAR a la gente a portar su carnet de identidad",
+    "pretende aplicar un TOQUE DE QUEDA al permitirle a carabineros fiscalizar tu identidad",
+    "apoya esa estupidez feudal, sudaca, retrógrada, fascista e inútil",
+    "es un/a femicida que apoya la muerte del bebé que está por nacer",
     "andaba metido en la wea del paro de aduanas"
   ],
   "cierre": [
@@ -267,7 +296,13 @@
     "XD",
     "XDXDXD",
     ":) :) :)",
+    "no+milicos",
+    "NO + AFP",
+    "dai verguensa",
+    "cómo tan ctm",
+    "JAJAJAJAJA",
+    "puro tongo",
     "ningún medio ha hablado absolutamente nada al respecto"
   ],
-  "version": "2.4.0"
+  "version": "2.4.5"
 }
