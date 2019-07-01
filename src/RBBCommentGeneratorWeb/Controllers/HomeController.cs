@@ -120,7 +120,7 @@ namespace RBBCommentGeneratorWeb.Controllers
             var diff = dtNow - dtOrigin;
             var diffmsec = BitConverter.GetBytes((uint)Math.Round(diff.TotalMilliseconds)).Reverse().ToArray();
 
-            var sversion = System.Convert.ToBase64String(diffmsec);
+            var sversion = new Base62.Base62Converter().Encode(System.Convert.ToBase64String(diffmsec));
 
             _memoryCache.Set($"surl_{sversion}", b64, TimeSpan.FromHours(1));
 
