@@ -13,6 +13,8 @@
     "Eres un@ %insulto% %insulto%, %consejo%. %personaje% %accion%. %cierre%, %cierre%",
     "El pueblo CHILENO ya está hasta la CORONILLA que haya %insulto% en el poder. ¡%personaje% para presidente!",
     "%personaje% %accion%. ¡%personaje% PARA PRESIDENTE DE CHILE!",
+    "%personaje% %accion%. ¡%personaje% PARA PRESIDENTE!",
+    "%personaje% %accion%. ¡%personaje% 2022!",
     "Es increíble cómo LA HISTORIA se repite y tenemos a un %insulto% en la presidencia. %personaje% debe renunciar.",
     "TODOS han fallado, TODOS los gobiernos se vendieron al empresariado y %accion%. Si %personaje% fuese presidente nada de esto hubiera ocurrido.",
     "%personaje% ha contribuido directamente a la caída del estado de derecho. %consejo%.",
@@ -30,6 +32,7 @@
     "tonto",
     "pobre weón",
     "tonto weón",
+    "tonto útil",
     "facho pobre",
     "rata socialista",
     "socialista al peo",
@@ -61,7 +64,9 @@
     "retrasado",
     "cretino de mierda",
     "estúpido",
-    "traidor a la patria"
+    "sacoweas",
+    "traidor a la patria",
+    "mamerto"
   ],
   "consejo": [
     "apaga la tele",
@@ -92,6 +97,7 @@
     "todo esto va a seguir",
     "por esto los paises grandes nos ven como un chiste",
     "comprension de lectura",
+    "dos dedos de frente",
     "investiga"
   ],
   "personaje": [
@@ -122,6 +128,8 @@
     "una de las siete familias",
     "la UDI",
     "la nueva pillería",
+    "la derecha",
+    "la derecha chilena",
     "la NM",
     "la concertación",
     "la concerta",
@@ -187,7 +195,15 @@
     "el gobierno y sus secuaces",
     "la manga de saqueadores",
     "el weon",
-    "sebastián dávalos"
+    "sebastián dávalos",
+    "Kast",
+    "Kkkast",
+    "JAK",
+    "Jaime Quintana",
+    "Quintana",
+    "Bea",
+    "La Bea",
+    "Beatriz Sánchez"
   ],
   "accion": [
     "roba",
@@ -290,7 +306,17 @@
     "sacaron las leyes culiás que permiten el ABUSO",
     "se subieron el sueldo mientras nadie los miraba",
     "acallaron a todos los medios, es por eso que nadie habla acá ni en la tele",
-    "andaba metido en la wea del paro de aduanas"
+    "fue a las protestas contra Piñera",
+    "nunca estuvo con el pueblo chileno",
+    "intenta tenernos como ESCLAVOS de su sistema neocapitalista marxista",
+    "quiere tenernos como borreguitos",
+    "andaba metido en la wea del paro de aduanas",
+    "negoció con Maduro la venta de Chile",
+    "lo pillaron quemando supermercados",
+    "lo pillaron quemando un cuartel",
+    "tiene a medio chile ciego con los perdigones",
+    "ha matado, violado y torturado",
+    "está matado, violado y torturado"
   ],
   "cierre": [
     "informate",
@@ -369,7 +395,10 @@
     "apuesto a que vo seguis cantando la alegria ya viene",
     "más perdedor que disfrutar las rutinas de jorge alis",
     "sospechosa la wea",
-    "ningún medio ha hablado absolutamente nada al respecto"
+    "ningún medio ha hablado absolutamente nada al respecto",
+    "Chile despertó",
+    "en Chile se mata, viola y tortura",
+    "nueva constitución AHORA!"
   ],
-  "version": "2.4.10"
+  "version": "2.4.12"
 }
